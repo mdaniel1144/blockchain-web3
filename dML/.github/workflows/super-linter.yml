@@ -1,0 +1,25 @@
+name: Lint Code Base
+
+on: 
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Run Super-Linter
+      uses: github/super-linter@v5
+      env:
+        DEFAULT_BRANCH: main
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        VALIDATE_PYTHON_BLACK: true
+        VALIDATE_JAVASCRIPT_STANDARD: true
+        VALIDATE_JAVASCRIPT_ES: true
+        VALIDATE_RUST: true
+        # Remove the lines for linters you don't want to run
+        VALIDATE_ALL_CODEBASE: false # Only validate new or edited files

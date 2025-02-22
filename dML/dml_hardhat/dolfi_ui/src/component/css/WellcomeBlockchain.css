@@ -1,0 +1,19 @@
+
+.wellcomeBlockcahin-container {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+.wellcomeBlockcahin-container h1 {
+    font-size: 4em;
+}
+
+.wellcomeBlockcahin-container main {
+    position: relative;
+    margin: auto;
+}

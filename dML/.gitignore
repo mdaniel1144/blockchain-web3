@@ -1,0 +1,65 @@
+# Node.js dependencies and build outputs
+node_modules/
+dist/
+build/
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files and editor backups
+*.tmp
+*.swp
+*.bak
+
+# Python bytecode and virtual environment
+**/__pycache__/
+*.pyc
+venv/
+
+# Rust build artifacts
+target/
+Cargo.lock
+
+# Hardhat build artifacts
+artifacts/
+cache/
+coverage/
+typechain/
+typechain-types/
+
+# Substrate build artifacts
+.wasm/
+
+# Test coverage files
+coverage/
+.nyc_output/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Ignore dataset files (if needed)
+**/data/
+
+# Ignore profiling results
+profiling_comparison/results/
+
+# Ignore sensitive config files (if any exist)
+testnet_connection/configs/*.secret
+
+# Ignore all precompiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignore GitHub Actions cache files
+.github/cache/
+
+# Ignore checkpoints
+model.pth

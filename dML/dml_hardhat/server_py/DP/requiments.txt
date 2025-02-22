@@ -1,0 +1,3 @@
+web3==7.2.0
+torch==2.4.1
+ipfshttpclient==0.7.0

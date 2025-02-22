@@ -1,0 +1,85 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  setup_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          override: true
+
+      - name: Install and Test npm dependencies (dml_hardhat/DP)
+        run: |
+          cd dml_hardhat/DP
+          npm install
+          npm test
+        shell: bash
+
+      - name: Install and Test npm dependencies (dml_hardhat/MP)
+        run: |
+          cd dml_hardhat/MP
+          npm install
+          npm test
+        shell: bash
+
+      - name: Install and Test npm dependencies (dml_hardhat/TP)
+        run: |
+          cd dml_hardhat/TP
+          npm install
+          npm test
+        shell: bash
+
+      - name: Build and Test Rust project (dml_substrate/DP)
+        run: |
+          cd dml_substrate/DP
+          cargo build --verbose
+          cargo test --verbose
+        shell: bash
+
+      - name: Build and Test Rust project (dml_substrate/MP)
+        run: |
+          cd dml_substrate/MP
+          cargo build --verbose
+          cargo test --verbose
+        shell: bash
+
+      - name: Build and Test Rust project (dml_substrate/TP)
+        run: |
+          cd dml_substrate/TP
+          cargo build --verbose
+          cargo test --verbose
+        shell: bash
+
+      - name: Set up Python environment and run tests
+        run: |
+          cd testnet_connection
+          python3 -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+          # Add your Python test commands here
+        shell: bash
