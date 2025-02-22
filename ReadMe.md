@@ -1,5 +1,7 @@
 # Machine Learning on Blockchain
 
+Created by Daniel Marko
+
 ## Introduction
 The aim of this project is to demonstrate the advantages of machine learning models by utilizing blockchain technology.
 We will be working within:
@@ -33,3 +35,8 @@ We will be working within:
    ```bash
    python3 interact.py   
    ```
+
+
+## Result
+
+This project work on Mnist Dataset, and the Result is: Match 98%
